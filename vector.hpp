@@ -7,7 +7,11 @@ namespace ft
 	class vector
 	{
 	private:
-		typedef	std::allocator<T>::pointer		pointer;
+		typedef typename T												value_type;
+		typedef	typename std::allocator<value_type>::pointer			pointer;
+		typedef	typename std::allocator<value_type>::const_pointer		const_pointer;
+		typedef	typename std::allocator<value_type>::reference			reference;
+		typedef	typename std::allocator<value_type>::const_reference	const_reference;
 	public:
 		vector()
 		{
