@@ -15,6 +15,7 @@
         "__functional_03": "cpp",
         "__node_handle": "cpp",
         "functional": "cpp",
-        "exception": "cpp"
+        "exception": "cpp",
+        "iostream": "cpp"
     }
 }

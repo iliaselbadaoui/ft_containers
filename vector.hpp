@@ -14,6 +14,13 @@ namespace ft
 				return "length error exception";
 			}
 		};
+		struct out_of_range : public std::exception
+		{
+			const char * what () const throw ()
+			{
+				return "out of range exception";
+			}
+		};
 
 		typedef 		 T									value_type;
         typedef 		 Allocator                          allocator_type;
@@ -169,6 +176,44 @@ namespace ft
 		// CAPACITY METHODS END
 
 		// ELEMENT ACCESS METHODS
+
+		// AT METHOD
+		reference at (size_type n)
+		{
+			if (n >= this->_size)
+				throw out_of_range();
+			return this->_array[n];
+		}
+		const_reference at (size_type n) const
+		{
+			if (n >= this->_size)
+				throw out_of_range();
+			return this->_array[n];
+		}
+		// AT METHOD END
+
+		// FRONT METHOD
+		reference front()
+		{
+			return this->_array[0];
+		}
+		const_reference front() const
+		{
+			return this->_array[0];
+		}
+		// FRONT METHOD END
+
+		// BACK METHOD
+		reference back()
+		{
+			return this->_array[this->_size - 1];
+		}
+		const_reference back() const
+		{
+			return this->_array[this->_size - 1];
+		}
+		// BACK METHOD END
+
 		// ELEMENT ACCESS METHODS END
 		// DESTRUCTOR
 		~vector()
