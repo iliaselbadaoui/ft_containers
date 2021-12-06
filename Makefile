@@ -2,6 +2,6 @@ c++ = clang++ -Wall -Wextra -Werror
 vector = vector_main.cpp
 NAMES = vector_test map_test stack_test
 test_vector: $(vector)
-	@$(c++) $(vector) -o vector
+	@$(c++) $(vector) -o vector_test
 clean:
 	@rm -rf $(NAMES)
