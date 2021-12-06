@@ -40,12 +40,11 @@ int main ()
     cout << "FT [11] operator : " << ft_vect[11] << endl;
     cout << "STD [6] operator : " << std_vect[6] << endl;
     cout << "FT [6] operator : " << ft_vect[6] << endl;
-
     cout << "------------------" << endl;
     cout << "FRONT METHOD" << endl;
     cout << "------------------" << endl;
     std_vect.front() = 3;
-    ft_vect.front() = 3;
+    std_vect.front() = 3;
     cout << "STD FRONT : " << std_vect.front() << endl;
     cout << "FT FRONT : " << ft_vect.front() << endl;
     cout << "------------------" << endl;

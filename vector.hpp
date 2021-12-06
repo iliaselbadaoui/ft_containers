@@ -3,25 +3,27 @@ namespace ft
 	# include <memory>
 	# include <exception>
 	# include "iterator_traits.hpp"
+	
 	# define X64_MAX 184467440737095.51616e5
+
+	struct length_error : public std::exception
+	{
+		const char * what () const throw ()
+		{
+			return "length error exception";
+		}
+	};
+	struct out_of_range : public std::exception
+	{
+		const char * what () const throw ()
+		{
+			return "out of range exception";
+		}
+	};
+	
 	template< class T,  class Allocator=std::allocator<T> >
 	class vector
 	{
-		struct length_error : public std::exception
-		{
-			const char * what () const throw ()
-			{
-				return "length error exception";
-			}
-		};
-		struct out_of_range : public std::exception
-		{
-			const char * what () const throw ()
-			{
-				return "out of range exception";
-			}
-		};
-
 		typedef 		 T									value_type;
         typedef 		 Allocator                          allocator_type;
 		typedef	typename allocator_type::pointer			pointer;
