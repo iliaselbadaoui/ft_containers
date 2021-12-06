@@ -2,7 +2,7 @@ namespace ft
 {
 	# include <memory>
 	# include "iterator_traits.hpp"
-
+	# define X64_MAX 184467440737095.51616e5
 	template< class T,  class Allocator=std::allocator<T> >
 	class vector
 	{
@@ -17,8 +17,15 @@ namespace ft
         
         pointer     	array;
         size_type       capacity;
-        size_type       size;
+        size_type       _size;
         allocator_type	alloc;
+
+		void destroySelf()
+		{
+			for (size_type i = 0; i < this->_size; i++)
+					this->alloc.destroy(this->array + i);
+				this->alloc.deallocate(this->array, this->capacity);
+		}
 	public:
 
 		// CONSTRUCTORS
@@ -26,7 +33,7 @@ namespace ft
 		{
             this->array = NULL;
             this->capacity = 0;
-            this->size = 0;
+            this->_size = 0;
 			this->alloc = alloc;
 		}
 		explicit vector(size_type n, const value_type& val = value_type(),
@@ -35,7 +42,7 @@ namespace ft
 			this->alloc = alloc;
             this->array = this->alloc.allocate(n);
             this->capacity = n;
-            this->size = n;
+            this->_size = n;
 			for (size_type i = 0; i < n; i++)
 				this->alloc.construct(this->array + i, val);
 		}
@@ -43,9 +50,9 @@ namespace ft
 		{
 			this->alloc = x.alloc;
 			this->capacity = x.capacity;
-			this->size = this->size;
+			this->_size = this->_size;
 			this->array = this->alloc.allocate(this->capacity);
-			for (size_type i = 0; i < this->size; i++)
+			for (size_type i = 0; i < this->_size; i++)
 				this->alloc.construct(this->array + i, x.array[i]);
 		}
 		// CONSTRUCTORS END
@@ -54,16 +61,12 @@ namespace ft
 		vector& operator= (const vector& x)
 		{
 			if (this->array)
-			{
-				for (size_type i = 0; i < this->size; i++)
-					this->alloc.destroy(this->array + i);
-				this->alloc.deallocate(this->array, this->capacity);
-			}
+				destroySelf();
 			this->alloc = x.alloc;
 			this->capacity = x.capacity;
-			this->size = this->size;
+			this->_size = this->_size;
 			this->array = this->alloc.allocate(this->capacity);
-			for (size_type i = 0; i < this->size; i++)
+			for (size_type i = 0; i < this->_size; i++)
 				this->alloc.construct(this->array + i, x.array[i]);
 			return *this;
 		}
@@ -78,12 +81,38 @@ namespace ft
 		}
 		// OPERATORS END
 
+		// CAPACITY METHODS
+		
+		// SIZE
+		size_type size() const
+		{
+			return this->_size;
+		}
+		// SIZE END
+
+		// MAX_SIZE
+		size_type max_size() const
+		{
+			int type_size = sizeof(value_type);
+			if (type_size == 1)
+				type_size++;
+			return X64_MAX/type_size - 1;
+		}
+		// MAX_SIZE END
+
+		// RESIZE
+		void resize (size_type n, value_type val = value_type())
+		{
+
+		}
+		// RESIZE END
+
+		// CAPACITY METHODS END
+
 		// DESTRUCTOR
 		~vector()
 		{
-			for (size_type i = 0; i < this->size; i++)
-				this->alloc.destroy(this->array);
-			this->alloc.deallocate(this->array, this->capacity);
+			destroySelf();
 		}
 		// DESTRUCTOR END
 	};
