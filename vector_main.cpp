@@ -44,6 +44,8 @@ int main ()
     cout << "------------------" << endl;
     cout << "FRONT METHOD" << endl;
     cout << "------------------" << endl;
+    std_vect.front() = 3;
+    ft_vect.front() = 3;
     cout << "STD FRONT : " << std_vect.front() << endl;
     cout << "FT FRONT : " << ft_vect.front() << endl;
     cout << "------------------" << endl;
