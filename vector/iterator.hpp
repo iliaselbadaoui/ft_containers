@@ -73,9 +73,14 @@ namespace ft
         {
             this->_pointer = NULL;
         }
-        _reverse_iterator(_reverse_iterator iter)
+        explicit _reverse_iterator(_reverse_iterator it)
         {
-            this->_pointer = iter._pointer;
+            this->_pointer = it._pointer;
+        }
+        template <class Iter>
+        _reverse_iterator (const _reverse_iterator<Iter>& rev_it)
+        {
+            this->_pointer = rev_it._pointer;
         }
         // CONSTRUCTORS END
 
