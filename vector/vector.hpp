@@ -4,7 +4,7 @@ namespace ft
 	# include <memory>
 	# include <exception>
     # include <iostream>
-	# include "../utilities/iterator.hpp"
+	# include "iterator.hpp"
 	
 	# define X64_MAX 184467440737095.51616e5
 
@@ -25,30 +25,19 @@ namespace ft
 	
 	template< class T,  class Allocator=std::allocator<T> >
 	class vector
-	{
-		typedef 		 T									value_type;
-        typedef 		 Allocator                          allocator_type;
-		typedef	typename allocator_type::pointer			pointer;
-		typedef	typename allocator_type::const_pointer		const_pointer;
-		typedef	typename allocator_type::reference			reference;
-		typedef	typename allocator_type::const_reference	const_reference;
-		typedef 		 size_t								size_type;
-		// typedef			 std::ptrdiff_t						difference_type
-        
-        pointer     	_array;
-        size_type       _capacity;
-        size_type       _size;
-        allocator_type	_alloc;
-
-		void destroySelf(size_type start, size_type end)
-		{
-			for (size_type i = start; i < end; i++)
-					this->_alloc.destroy(this->_array + i);
-			if (end - start == this->_capacity)
-				this->_alloc.deallocate(this->_array, this->_capacity);
-		}
+    {
 	public:
 
+        typedef 		 T									value_type;
+        typedef 		 Allocator                          allocator_type;
+        typedef	typename allocator_type::pointer			pointer;
+        typedef	typename allocator_type::const_pointer		const_pointer;
+        typedef	typename allocator_type::reference			reference;
+        typedef	typename allocator_type::const_reference	const_reference;
+        typedef          ft::_iterator<T>                   iterator;
+        typedef          ft::_iterator<const T>             const_iterator;
+        typedef 		 size_t								size_type;
+        typedef			 std::ptrdiff_t						difference_type;
 		// CONSTRUCTORS
 		explicit vector(const allocator_type& alloc = allocator_type())
 		{
@@ -334,6 +323,19 @@ namespace ft
 			destroySelf(0, this->_capacity);
 		}
 		// DESTRUCTOR END
+    private:
+        pointer     	_array;
+        size_type       _capacity;
+        size_type       _size;
+        allocator_type	_alloc;
+
+        void destroySelf(size_type start, size_type end)
+        {
+            for (size_type i = start; i < end; i++)
+                this->_alloc.destroy(this->_array + i);
+            if (end - start == this->_capacity)
+                this->_alloc.deallocate(this->_array, this->_capacity);
+        }
 	};
 
     // RELATIONAL OPERATORS
