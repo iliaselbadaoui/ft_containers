@@ -1,6 +1,7 @@
 # include <iostream>
 # include <vector>
-# include "vector.hpp"
+# include <iterator>
+# include "vector/vector.hpp"
 
 using namespace std;
 int main ()
@@ -44,7 +45,7 @@ int main ()
     cout << "FRONT METHOD" << endl;
     cout << "------------------" << endl;
     std_vect.front() = 3;
-    std_vect.front() = 3;
+    ft_vect.front() = 3;
     cout << "STD FRONT : " << std_vect.front() << endl;
     cout << "FT FRONT : " << ft_vect.front() << endl;
     cout << "------------------" << endl;
@@ -52,5 +53,28 @@ int main ()
     cout << "------------------" << endl;
     cout << "STD BACK : " << std_vect.back() << endl;
     cout << "FT BACK : " << ft_vect.back() << endl;
+
+    cout << "------------------" << endl;
+    cout << "PUSH-BACK METHOD" << endl;
+    cout << "------------------" << endl;
+    std::vector<type> std_vect_empty;
+    ft::vector<type> ft_vect_empty;
+    std_vect_empty.push_back(1);
+    ft_vect_empty.push_back(1);
+    std_vect_empty.push_back(1);
+    ft_vect_empty.push_back(1);
+    std_vect_empty.push_back(1);
+    ft_vect_empty.push_back(1);
+    cout << "STD capaity : " << std_vect_empty.capacity() << endl;
+    cout << "FT capaity : " << ft_vect_empty.capacity() << endl;
+    cout << "------------------" << endl;
+    cout << "POP-BACK METHOD" << endl;
+    cout << "------------------" << endl;
+    std_vect_empty.pop_back();
+    ft_vect_empty.pop_back();
+    cout << "STD capaity : " << std_vect_empty.capacity() << endl;
+    cout << "FT capaity : " << ft_vect_empty.capacity() << endl;
+    std::vector<int>::iterator iter = std_vect.begin();
+    iter.base();
     return 0;
 }

@@ -1,8 +1,10 @@
+# pragma once
 namespace ft
 {
 	# include <memory>
 	# include <exception>
-	# include "iterator_traits.hpp"
+    # include <iostream>
+	# include "../utilities/iterator.hpp"
 	
 	# define X64_MAX 184467440737095.51616e5
 
@@ -217,6 +219,115 @@ namespace ft
 		// BACK METHOD END
 
 		// ELEMENT ACCESS METHODS END
+
+		// MODIFIERS METHODS
+
+		// ASSIGN METHOD
+			// template <class InputIterator>
+			// void assign (InputIterator first, InputIterator last)
+			// {
+			// }
+		void assign (size_type n, const value_type& val)
+		{
+            for (size_type i = 0; i < n; i++)
+                this->_alloc.destroy(this->_array + i);
+            if (n > this->_capacity)
+            {
+                this->_alloc.deallocate(this->_array, _capacity);
+                this->_alloc.allocate(this->_array, n);
+                this->_capacity = n;
+            }
+            for (size_type i = 0; i < n; i++)
+                this->_alloc.construct(this->_array + i, val);
+            this->_size = n;
+		}
+		// ASSIGN METHOD END
+
+        // PUSH_BACK METHOD
+        void push_back (const value_type& val)
+        {
+		    if (this->_size < this->_capacity)
+		    {
+                this->_array[this->_size] = val;
+                ++this->_size;
+		    }
+		    else
+            {
+		        this->_capacity == 0 ? this->_capacity = 1 : this->_capacity *= 2;
+		        pointer tmp = this->_alloc.allocate(this->_capacity);
+		        for (size_type i = 0 ; i < this->_size; i++)
+		            this->_alloc.construct(tmp + i, this->_array[i]);
+		        tmp[this->_size] = val;
+		        ++this->_size;
+		        destroySelf(0, capacity() / 2);
+		        this->_array = tmp;
+            }
+        }
+        // PUSH_BACK METHOD END
+
+        // POP_BACK METHOD
+        void pop_back()
+        {
+		    if (this->_size)
+            {
+                this->_alloc.destroy(this->_array + (this->_size - 1));
+                --this->_size;
+            }
+		};
+        // POP_BACK METHOD END
+
+        // INSERT METHOD
+//            iterator insert (iterator position, const value_type& val);
+//            void insert (iterator position, size_type n, const value_type& val);
+//            template <class InputIterator>
+//            void insert (iterator position, InputIterator first, InputIterator last);
+        // INSERT METHOD END
+
+        // ERASE METHOD
+//            iterator erase (iterator position);
+//            iterator erase (iterator first, iterator last);
+        // ERASE METHOD END
+
+        // SWAP METHOD
+        void swap (vector& x)
+        {
+            size_type   helper;
+            pointer     aux;
+
+            aux = this->_array;
+            this->_array = x._array;
+            x._array = aux;
+            helper = this->_size;
+            this->_size = x._size;
+            x._size = helper;
+            helper = this->_capacity;
+            this->_capacity = x._capacity;
+            x._capacity = helper;
+        }
+        // SWAP METHOD END
+
+        // CLEAR METHOD
+        void clear()
+        {
+            for (size_type i = 0; i < this->_size; i++)
+                this->_alloc.destroy(this->_array + i);
+            this->_size = 0;
+        }
+        // CLEAR METHOD END
+
+		// MODIFIERS METHODS END
+
+        // ALLOCATOR METHODS
+
+        // GET_ALLOCATOR METHOD
+        allocator_type get_allocator() const
+        {
+            return this->_alloc;
+        }
+        // GET_ALLOCATOR METHOD END
+
+        // ALLOCATOR METHODS END
+
 		// DESTRUCTOR
 		~vector()
 		{
@@ -224,5 +335,24 @@ namespace ft
 		}
 		// DESTRUCTOR END
 	};
-	
+
+    // RELATIONAL OPERATORS
+    template <class T, class Alloc>
+    bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+    template <class T, class Alloc>
+    bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+    template <class T, class Alloc>
+    bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+    template <class T, class Alloc>
+    bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+    template <class T, class Alloc>
+    bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+
+    template <class T, class Alloc>
+    bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+    // RELATIONAL OPERATORS END
 }
