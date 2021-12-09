@@ -8,7 +8,7 @@ namespace ft
 	{
 		typedef typename Iter::difference_type		difference_type;
 		typedef typename Iter::value_type			value_type;
-		typedef typename Iter::pointer				pointer;
+		typedef typename Iter::pointer              pointer;
 		typedef typename Iter::reference			reference;
 		typedef typename Iter::iterator_category	iterator_category;
 	};
@@ -19,7 +19,7 @@ namespace ft
 		typedef typename std::ptrdiff_t		difference_type;
 		typedef T							value_type;
 		typedef const T*					pointer;
-		typedef const T&					reference;
+		typedef const T&                    reference;
 		typedef typename std::random_access_iterator_tag	iterator_category;
 	};
 

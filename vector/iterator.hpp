@@ -21,7 +21,7 @@ namespace ft
             {
                 this->_pointer = NULL;
             }
-            _iterator(_iterator iter)
+            _iterator(const _iterator &iter)
             {
                 this->_pointer = iter._pointer;
             }
@@ -58,28 +58,28 @@ namespace ft
             pointer _pointer;
     };
 
-    template <class Iter>
-    class _reverse_iterator: public ft::iterator<std::random_access_iterator_tag, Iter>
+    template <class Iterator>
+    class _reverse_iterator: public ft::iterator<std::random_access_iterator_tag, Iterator>
     {
     public:
-        typedef Iter                                                    iterator_type;
-        typedef typename ft::iterator_traits<Iter>::value_type          value_type;
-        typedef typename ft::iterator_traits<Iter>::difference_type     difference_type;
-        typedef typename ft::iterator_traits<Iter>::pointer             pointer;
-        typedef typename ft::iterator_traits<Iter>::reference           reference;
-        typedef typename ft::iterator_traits<Iter>::iterator_category   iterator_category;
+        typedef Iterator                                                iterator_type;
+        typedef typename ft::iterator_traits<Iterator>::value_type          value_type;
+        typedef typename ft::iterator_traits<Iterator>::difference_type     difference_type;
+        typedef typename ft::iterator_traits<Iterator>::pointer             pointer;
+        typedef typename ft::iterator_traits<Iterator>::reference           reference;
+        typedef typename ft::iterator_traits<Iterator>::iterator_category   iterator_category;
 
         // CONSTRUCTORS
         _reverse_iterator()
         {
             this->_pointer = NULL;
         }
-        explicit _reverse_iterator(_reverse_iterator it)
+        explicit _reverse_iterator(iterator_type it)
         {
             this->_pointer = it._pointer;
         }
         template <class Iter>
-        _reverse_iterator (const _reverse_iterator< Iter >& rev_it)
+        _reverse_iterator (const _reverse_iterator<Iter>& rev_it)
         {
             this->_pointer = rev_it._pointer;
         }

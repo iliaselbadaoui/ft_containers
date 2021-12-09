@@ -3,14 +3,19 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35e16d33-c079-4a92-9ca0-6a509bdfc3b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vector/vector.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector/vector.hpp" afterDir="false" />
+    <list default="true" id="35e16d33-c079-4a92-9ca0-6a509bdfc3b7" name="Default Changelist" comment="frii3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/iterator_traits.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/iterator_traits.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vector/iterator.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector/iterator.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +57,34 @@
       <updated>1639043292084</updated>
       <workItem from="1639043296039" duration="745000" />
       <workItem from="1639061684622" duration="317000" />
-      <workItem from="1639062412043" duration="962000" />
+      <workItem from="1639062412043" duration="2953000" />
     </task>
+    <task id="LOCAL-00001" summary="frii3">
+      <created>1639064216531</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639064216531</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="frii3" />
+    <option name="LAST_COMMIT_MESSAGE" value="frii3" />
   </component>
 </project>

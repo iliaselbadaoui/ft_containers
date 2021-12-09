@@ -366,14 +366,14 @@ namespace ft
         if (lhs.size() != rhs.size()) {
             return (false);
         }
-        typename vector<T>::const_iterator lhs_it = lhs.begin();
-        typename vector<T>::const_iterator lhs_ite = lhs.end();
-        typename vector<T>::const_iterator rhs_it = rhs.begin();
+        typename vector<T>::const_iterator left_ = lhs.begin();
+        typename vector<T>::const_iterator left_e = lhs.end();
+        typename vector<T>::const_iterator right_ = rhs.begin();
 
         if (lhs.size() != rhs.size())
             return (false);
-        while (lhs_it != lhs_ite) {
-            if (*lhs_it++ != *rhs_it++)
+        while (left_ != left_e) {
+            if (*left_++ != *right_++)
                 return (false);
         }
         return (true);
@@ -388,19 +388,19 @@ namespace ft
     template <class T, class Alloc>
     bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
     {
-        typename vector<T>::const_iterator lhs_it = lhs.begin();
-        typename vector<T>::const_iterator lhs_ite = lhs.end();
-        typename vector<T>::const_iterator rhs_it = rhs.begin();
-        typename vector<T>::const_iterator rhs_ite = rhs.end();
-        while (lhs_it != lhs_ite && rhs_it != rhs_ite) {
-            if (*lhs_it < *rhs_it)
+        typename vector<T>::const_iterator left_ = lhs.begin();
+        typename vector<T>::const_iterator left_e = lhs.end();
+        typename vector<T>::const_iterator right_ = rhs.begin();
+        typename vector<T>::const_iterator right_e = rhs.end();
+        while (left_ != left_e && right_ != right_e) {
+            if (*left_ < *right_)
                 return (true);
-            else if (*lhs_it > *rhs_it)
+            else if (*left_ > *right_)
                 return (false);
-            lhs_it++;
-            rhs_it++;
+            left_++;
+            right_++;
         }
-        if (lhs_it == lhs_ite && rhs_it != rhs_ite)
+        if (left_ == left_e && right_ != right_e)
             return (true);
         return (false);
     }
