@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35e16d33-c079-4a92-9ca0-6a509bdfc3b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ft_containers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ft_containers.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vector/iterator.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector/iterator.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vector/vector.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector/vector.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vector_main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector_main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -47,7 +45,7 @@
       <updated>1639043292084</updated>
       <workItem from="1639043296039" duration="745000" />
       <workItem from="1639061684622" duration="317000" />
-      <workItem from="1639062412043" duration="644000" />
+      <workItem from="1639062412043" duration="962000" />
     </task>
     <servers />
   </component>

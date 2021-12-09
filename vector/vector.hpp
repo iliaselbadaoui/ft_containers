@@ -386,15 +386,49 @@ namespace ft
     }
 
     template <class T, class Alloc>
-    bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+    bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+    {
+        typename vector<T>::const_iterator lhs_it = lhs.begin();
+        typename vector<T>::const_iterator lhs_ite = lhs.end();
+        typename vector<T>::const_iterator rhs_it = rhs.begin();
+        typename vector<T>::const_iterator rhs_ite = rhs.end();
+        while (lhs_it != lhs_ite && rhs_it != rhs_ite) {
+            if (*lhs_it < *rhs_it)
+                return (true);
+            else if (*lhs_it > *rhs_it)
+                return (false);
+            lhs_it++;
+            rhs_it++;
+        }
+        if (lhs_it == lhs_ite && rhs_it != rhs_ite)
+            return (true);
+        return (false);
+    }
 
     template <class T, class Alloc>
-    bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+    bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+    {
+        return !(lhs > rhs);
+    }
 
     template <class T, class Alloc>
-    bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+    bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+    {
+        return (rhs < lhs);
+    }
 
     template <class T, class Alloc>
-    bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs);
+    bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+    {
+        return !(lhs < rhs);
+    }
     // RELATIONAL OPERATORS END
+
+    // SWAP
+    template <class T, class Alloc>
+    void swap (vector<T,Alloc>& x, vector<T,Alloc>& y)
+    {
+        x.swap(y);
+    }
+    // SWAP END
 }
