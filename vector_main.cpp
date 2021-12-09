@@ -74,7 +74,6 @@ int main ()
     ft_vect_empty.pop_back();
     cout << "STD capaity : " << std_vect_empty.capacity() << endl;
     cout << "FT capaity : " << ft_vect_empty.capacity() << endl;
-    std::vector<int>::reverse_iterator std_iter = std_vect.begin();
     ft::vector<int>::iterator ft_iter;
     return 0;
 }
