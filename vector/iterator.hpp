@@ -10,11 +10,11 @@ namespace ft
     class _iterator: public ft::iterator<std::random_access_iterator_tag, T>
     {
         public:
-            typedef typename ft::iterator_traits<T>::value_type          value_type;
-            typedef typename ft::iterator_traits<T>::difference_type     difference_type;
-            typedef typename ft::iterator_traits<T>::pointer             pointer;
-            typedef typename ft::iterator_traits<T>::reference           reference;
-            typedef typename ft::iterator_traits<T>::iterator_category   iterator_category;
+            typedef typename ft::iterator<std::random_access_iterator_tag, T>::value_type          value_type;
+            typedef typename ft::iterator<std::random_access_iterator_tag, T>::difference_type     difference_type;
+            typedef typename ft::iterator<std::random_access_iterator_tag, T>::pointer             pointer;
+            typedef typename ft::iterator<std::random_access_iterator_tag, T>::reference           reference;
+            typedef typename ft::iterator<std::random_access_iterator_tag, T>::iterator_category   iterator_category;
 
             // CONSTRUCTORS
             _iterator()
@@ -59,7 +59,7 @@ namespace ft
     };
 
     template <class Iterator>
-    class _reverse_iterator: public ft::iterator<std::random_access_iterator_tag, Iterator>
+    class _reverse_iterator
     {
     public:
         typedef Iterator                                                iterator_type;

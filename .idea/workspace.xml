@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utilities/iterator_traits.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/iterator_traits.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vector/iterator.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector/iterator.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vector/vector.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/vector/vector.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
       <updated>1639043292084</updated>
       <workItem from="1639043296039" duration="745000" />
       <workItem from="1639061684622" duration="317000" />
-      <workItem from="1639062412043" duration="2953000" />
+      <workItem from="1639062412043" duration="3365000" />
     </task>
     <task id="LOCAL-00001" summary="frii3">
       <created>1639064216531</created>
