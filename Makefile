@@ -9,3 +9,6 @@ $(NAME): $(vector)
 	@$(c++) $(vector) -o $(NAME)
 clean:
 	@rm -rf $(NAMES)
+re: clean all
+
+.PHONY: all re clean
